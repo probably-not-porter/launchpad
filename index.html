@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Launchpad</title>
+        <style>
+            body{
+                background-image: url("bg4.gif");
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            ul{
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-size: 40px;
+                line-height: 55px;
+                color: white;
+                background-color: rgba(255,255,255,0.2);
+                display: inline-block;
+                padding: 20px;
+                border-radius: 10px;
+                margin-right: 20px;
+                margin-left: 20px;
+                list-style: none;
+                text-decoration: underline;
+                transition-duration: 500ms;
+            }
+            li:hover{
+                transition-duration: 500ms;
+                color: black;
+                cursor: pointer;
+            }
+            #clock{
+                font-size: 100px;
+                color: white;
+                position: absolute;
+                float: right;
+                top: 20px;
+                right: 20px;
+                background-color: rgba(255,255,255,0.2);
+                padding: 20px;
+                border-radius: 10px;
+            }
+            a{
+                color: rgba(255,255,255,0.8);
+                transition-duration: 500ms;
+            }
+            a:hover{
+                color: black;
+                transition-duration: 500ms;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="clock"></div>
+        <ul>
+            <li><a href="https://www.projectfreetv.fun/">ProjectFreeTV</a></li>
+            <li><a href="https://www.thewatchcartoononline.tv/">TheWatchCartoonTV</a></li>
+            <li><a href="https://123moviesfree.net/">123 Movies</a></li>
+        </ul>
+
+        <ul>
+            <li><a href="https://www.netflix.com/">Netflix</a></li>
+            <li><a href="https://www.hulu.com/">Hulu</a></li>
+        </ul>
+
+
+        <script>
+            function currentTime() {
+                var date = new Date(); /* creating object of Date class */
+                var hour = date.getHours();
+                var min = date.getMinutes();
+                var sec = date.getSeconds();
+                hour = updateTime(hour);
+                min = updateTime(min);
+                sec = updateTime(sec);
+                if (hour > 12){
+                    hour = hour - 12;
+                }
+                document.getElementById("clock").innerText = hour + ":" + min + ":" + sec; /* adding time to the div */
+                var t = setTimeout(function(){ currentTime() }, 1000); /* setting timer */
+            }
+
+            function updateTime(k) {
+                if (k < 10) {
+                    return "0" + k;
+                }   
+                else {
+                    return k;
+                }
+            }
+
+            currentTime(); /* calling currentTime() function to initiate the process */
+        </script>
+    </body>
+</html>
